@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1490060777 source:/home/deus/Documents/sdl/links-epic-fight/src/Game.cpp
+1490061347 source:/home/deus/Documents/sdl/links-epic-fight/src/Game.cpp
 	"../include/Game.h"
 	"../include/Rect.h"
 
-1490060777 /home/deus/Documents/sdl/links-epic-fight/include/Game.h
+1490061347 /home/deus/Documents/sdl/links-epic-fight/include/Game.h
 	<list>
 	<SDL2/SDL.h>
 	"Rect.h"
