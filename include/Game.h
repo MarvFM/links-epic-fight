@@ -3,7 +3,7 @@
 
 #include <list>
 #include <SDL2/SDL.h>
-#include "Rect.h"
+#include "../include/Rect.h"
 
 class Game
 {
