@@ -1,4 +1,4 @@
-#include "Rect.h"
+#include "../include/Rect.h"
 
 #include <SDL2/SDL_ttf.h>
 extern SDL_Renderer* RENDERER;

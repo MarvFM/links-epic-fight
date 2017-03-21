@@ -1,5 +1,5 @@
-#include "Game.h"
-#include "Rect.h"
+#include "../include/Game.h"
+#include "../include/Rect.h"
 extern SDL_Renderer* RENDERER;
 
 Game::Game()
