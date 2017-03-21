@@ -1,6 +1,9 @@
 #include "../include/Game.h"
 #include "../include/Rect.h"
+#include "../include/Timer.h"
+
 extern SDL_Renderer* RENDERER;
+extern Timer* TIMER;
 
 Game::Game()
 {
@@ -20,7 +23,8 @@ void Game::Run()
     while(!this->quit){
         SDL_SetRenderDrawColor(RENDERER, 0, 255, 0, 255);
         SDL_RenderClear(RENDERER);
-        int speed = 2;
+        TIMER->Update();
+        int speed = 200 * TIMER->getElapsed();
 
         while(SDL_PollEvent(&e)){
             if(e.type == SDL_QUIT) quit = true;
