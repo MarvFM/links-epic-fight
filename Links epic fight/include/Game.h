@@ -20,7 +20,7 @@ class Game
         SDL_Renderer *gameRenderer;
         bool quit;
         std::list<Rect> enemies;
-        Rect hero;
+        Rect *hero;
 
 };
 

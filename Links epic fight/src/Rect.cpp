@@ -1,4 +1,4 @@
-#include "Rect.h"
+#include "../include/Rect.h"
 
 
 Rect::Rect(std::string name, int x, int y, int height, int width, int r, int g, int b)
