@@ -1,18 +1,18 @@
 # depslib dependency file v1.0
-1490048188 source:/home/marv/Desktop/Links epic fight/links-epic-fight/Links epic fight/src/Rect.cpp
-	"Rect.h"
+1490060315 source:/home/marv/Desktop/Links epic fight/links-epic-fight/Links epic fight/src/Rect.cpp
+	"../include/Rect.h"
 
-1490057643 /home/marv/Desktop/Links epic fight/links-epic-fight/Links epic fight/include/Rect.h
+1490060315 /home/marv/Desktop/Links epic fight/links-epic-fight/Links epic fight/include/Rect.h
 	<SDL2/SDL.h>
 	<string>
 
-1490057332 source:/home/marv/Desktop/Links epic fight/links-epic-fight/Links epic fight/Main.cpp
+1490060315 source:/home/marv/Desktop/Links epic fight/links-epic-fight/Links epic fight/Main.cpp
 	<SDL2/SDL.h>
 	<string>
-	"Game.h"
-	"Rect.h"
+	"include/Rect.h"
+	"include/Game.h"
 
-1490057324 /home/marv/Desktop/Links epic fight/links-epic-fight/Links epic fight/include/Game.h
+1490060903 /home/marv/Desktop/Links epic fight/links-epic-fight/Links epic fight/include/Game.h
 	<list>
 	<SDL2/SDL.h>
 	"Rect.h"

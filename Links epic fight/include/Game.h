@@ -19,7 +19,7 @@ class Game
         SDL_Surface *gameSurface;
         SDL_Renderer *gameRenderer;
         bool quit;
-        std::list<Rect> enemies;
+        std::list<Rect*> enemies;
         Rect *hero;
 
 };
