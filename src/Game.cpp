@@ -1,12 +1,10 @@
 #include "../include/Game.h"
 
 #include "../include/Rect.h"
+extern SDL_Renderer* RENDERER;
 
 Game::Game()
 {
-    this->gameWindow = SDL_CreateWindow("The Legend of Zelda: Links epic Fight", 100, 100, 1200, 900, SDL_WINDOW_SHOWN);
-    this->gameSurface = SDL_GetWindowSurface(this->gameWindow);
-    this->gameRenderer = SDL_CreateRenderer(this->gameWindow, -1, SDL_RENDERER_PRESENTVSYNC);
     this->quit = false;
 
     this->hero = new Rect(std::string("Link"), 50, 50, 20, 20, 0, 0, 255);
@@ -18,10 +16,11 @@ Game::Game()
 
 void Game::Run()
 {
+    // Main Loop
     SDL_Event e;
     while(!this->quit){
-        SDL_SetRenderDrawColor(this->gameRenderer, 0, 255, 0, 255);
-        SDL_RenderClear(this->gameRenderer);
+        SDL_SetRenderDrawColor(RENDERER, 0, 255, 0, 255);
+        SDL_RenderClear(RENDERER);
         int speed = 2;
 
         while(SDL_PollEvent(&e)){
@@ -35,22 +34,22 @@ void Game::Run()
         if(state[SDL_SCANCODE_S]) hero->move(0,speed);
         if(state[SDL_SCANCODE_D]) hero->move(speed,0);
 
-        this->CheckCollisions();
-        this->DrawWindow();
+        this->checkCollisions();
+        this->draw();
     }
 }
 
-void Game::DrawWindow()
+void Game::draw()
 {
     for(Rect *enemy : enemies){
-        if(enemy->isAlive) enemy->draw(this->gameRenderer);
+        if(enemy->isAlive) enemy->draw();
     }
-    this->hero->draw(this->gameRenderer);
-    SDL_RenderPresent(this->gameRenderer);
+    this->hero->draw();
+    SDL_RenderPresent(RENDERER);
     return;
 }
 
-void Game::CheckCollisions()
+void Game::checkCollisions()
 {
     for(Rect *enemy : enemies){
         if(this->hero->collides(enemy)) enemy->kill();

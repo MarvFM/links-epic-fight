@@ -1,23 +1,25 @@
 # depslib dependency file v1.0
-1490061347 source:/home/deus/Documents/sdl/links-epic-fight/src/Game.cpp
+1490064965 source:/home/deus/Documents/sdl/links-epic-fight/src/Game.cpp
 	"../include/Game.h"
 	"../include/Rect.h"
 
-1490061347 /home/deus/Documents/sdl/links-epic-fight/include/Game.h
+1490064420 /home/deus/Documents/sdl/links-epic-fight/include/Game.h
 	<list>
 	<SDL2/SDL.h>
 	"Rect.h"
 
-1490060777 /home/deus/Documents/sdl/links-epic-fight/include/Rect.h
+1490064887 /home/deus/Documents/sdl/links-epic-fight/include/Rect.h
 	<SDL2/SDL.h>
 	<string>
 
-1490061228 source:/home/deus/Documents/sdl/links-epic-fight/src/Main.cpp
+1490065037 source:/home/deus/Documents/sdl/links-epic-fight/src/Main.cpp
 	<SDL2/SDL.h>
+	<SDL2/SDL_ttf.h>
 	<string>
 	"../include/Rect.h"
 	"../include/Game.h"
 
-1490060777 source:/home/deus/Documents/sdl/links-epic-fight/src/Rect.cpp
+1490065163 source:/home/deus/Documents/sdl/links-epic-fight/src/Rect.cpp
 	"../include/Rect.h"
+	<SDL2/SDL_ttf.h>
 

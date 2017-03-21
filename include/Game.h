@@ -7,18 +7,19 @@
 
 class Game
 {
+    // methods
     public:
         Game();
         void Run();
-    protected:
-    private:
-        void DrawWindow();
-        void CheckCollisions();
 
-        SDL_Window *gameWindow;
-        SDL_Surface *gameSurface;
-        SDL_Renderer *gameRenderer;
+    private:
+        void draw();
+        void checkCollisions();
+
+    // properties
+    private:
         bool quit;
+
         std::list<Rect*> enemies;
         Rect *hero;
 

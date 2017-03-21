@@ -6,22 +6,32 @@
 
 class Rect
 {
+    // methods
+    public:
+        Rect(std::string name, int x, int y, int width, int height, int r, int g, int b);
+        ~Rect();
+        void draw();
+        bool move(int xDiff, int yDiff);
+        void kill();
+        bool collides(Rect *otherRect);
+
+    // properties
     public:
         bool isAlive;
         int red;
         int green;
         int blue;
 
-        Rect(std::string name, int x, int y, int height, int width, int r, int g, int b);
-        void draw(SDL_Renderer* dst);
-        bool move(int xDiff, int yDiff);
-        void kill();
-        bool collides(Rect *otherRect);
+        // buffer title text of the rectangle
+        SDL_Texture *titleTexture;
+        int titleTextureWidth;
+        int titleTextureHeight;
+
     private:
         int xPos;
         int yPos;
-        int height;
         int width;
+        int height;
         std::string name;
 };
 
