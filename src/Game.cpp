@@ -10,8 +10,10 @@ Game::Game()
     this->quit = false;
 
     this->hero = new Rect(std::string("Link"), 50, 50, 20, 20, 0, 0, 255);
-    Rect enemy = Rect(std::string("Ganon"), 400, 400, 20, 20, 255, 0, 0);
+    Rect *enemy = new Rect(std::string("Ganon"), 400, 400, 20, 20, 255, 0, 0);
+    Rect *enemy2 = new Rect(std::string("Ganon2"), 500, 500, 20, 20, 255, 0, 0);
     this->enemies.push_front(enemy);
+    this->enemies.push_front(enemy2);
 }
 
 void Game::Run()
@@ -40,8 +42,8 @@ void Game::Run()
 
 void Game::DrawWindow()
 {
-    for(Rect enemy : enemies){
-        if(enemy.isAlive) enemy.draw(this->gameRenderer);
+    for(Rect *enemy : enemies){
+        if(enemy->isAlive) enemy->draw(this->gameRenderer);
     }
     this->hero->draw(this->gameRenderer);
     SDL_RenderPresent(this->gameRenderer);
@@ -50,7 +52,7 @@ void Game::DrawWindow()
 
 void Game::CheckCollisions()
 {
-    for(Rect enemy : enemies){
-        if(this->hero->collides(&enemy)) enemy.kill();
+    for(Rect *enemy : enemies){
+        if(this->hero->collides(enemy)) enemy->kill();
     }
 }

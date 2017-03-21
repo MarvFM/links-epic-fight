@@ -12,7 +12,9 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +24,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -31,6 +34,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add option="-lSDL2" />
+		</Linker>
+		<Unit filename="Main.cpp" />
+		<Unit filename="include/Game.h" />
+		<Unit filename="include/Rect.h" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Rect.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
