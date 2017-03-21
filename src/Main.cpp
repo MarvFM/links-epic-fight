@@ -1,6 +1,6 @@
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
-#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>   // sudo apt-get install libsdl2-ttf-dev
+#include <SDL2/SDL_image.h> // sudo apt-get install libsdl2-image-dev
 
 #include <string>
 
