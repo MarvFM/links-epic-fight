@@ -8,7 +8,7 @@ CC = g++
 COMPILER_FLAGS = -Wall -O -std=c++11
 
 # linker
-LINKER_FLAGS = -lSDL2 -lSDL2_ttf
+LINKER_FLAGS = -lSDL2 -lSDL2_ttf -lSDL2_image
 
 # output name
 OBJ_NAME = links_epic_fight
