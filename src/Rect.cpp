@@ -48,7 +48,7 @@ void Rect::draw(){
     SDL_RenderFillRect(RENDERER, &rect);
 }
 
-bool Rect::move(int xDiff, int yDiff){
+void Rect::move(int xDiff, int yDiff){
     this->xPos += xDiff;
     this->yPos += yDiff;
 }
@@ -64,4 +64,3 @@ bool Rect::collides(Rect *otherRect){
     if((yDiff - this->height > -2) || ((yDiff + otherRect->height < 2))) return false;
     return true;
 }
-

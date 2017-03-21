@@ -11,7 +11,7 @@ class Rect
         Rect(std::string name, int x, int y, int width, int height, int r, int g, int b);
         ~Rect();
         void draw();
-        bool move(int xDiff, int yDiff);
+        void move(int xDiff, int yDiff);
         void kill();
         bool collides(Rect *otherRect);
 
@@ -36,4 +36,3 @@ class Rect
 };
 
 #endif // RECT_H
-
