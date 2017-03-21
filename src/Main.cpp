@@ -2,8 +2,8 @@
 #include <SDL2/SDL_ttf.h>
 #include <string>
 
-#include "../include/Rect.h"
-#include "../include/Game.h"
+#include "Rect.h"
+#include "Game.h"
 
 // need the renderer in a lot of places
 SDL_Renderer* RENDERER;
