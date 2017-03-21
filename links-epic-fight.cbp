@@ -35,12 +35,12 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Linker>
-			<Add option="-lSDL2" />
+			<Add option="-lSDL2 -lSDL2main -lSDL2_ttf" />
 		</Linker>
-		<Unit filename="Main.cpp" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Rect.h" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Main.cpp" />
 		<Unit filename="src/Rect.cpp" />
 		<Extensions>
 			<code_completion />
