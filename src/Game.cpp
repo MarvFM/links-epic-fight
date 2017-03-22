@@ -13,8 +13,8 @@ Game::Game()
     this->quit = false;
 
     this->hero = new Hero(50, 50);
-    Rect *enemy = new Bokblin(400, 400);
-    Rect *enemy2 = new Bokblin(500, 500);
+    Character *enemy = new Bokblin(400, 400);
+    Character *enemy2 = new Bokblin(500, 500);
     this->enemies.push_front(enemy);
     this->enemies.push_front(enemy2);
 }
@@ -48,7 +48,7 @@ void Game::Run()
 void Game::draw()
 {
     for(Character *enemy : enemies){
-        if(enemy->isAlive) enemy->draw();
+        if(enemy->getIsAlive()) enemy->draw();
     }
     this->hero->draw();
     SDL_RenderPresent(RENDERER);

@@ -4,7 +4,6 @@
 
 #include <string>
 
-#include "../include/Rect.h"
 #include "../include/Game.h"
 #include "../include/Timer.h"
 
