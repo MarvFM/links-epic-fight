@@ -1,6 +1,9 @@
+
 #include "../include/Game.h"
-#include "../include/Rect.h"
+#include "../include/Character.h"
 #include "../include/Timer.h"
+#include "../include/Hero.h"
+#include "../include/Bokblin.h"
 
 extern SDL_Renderer* RENDERER;
 extern Timer* TIMER;
@@ -9,9 +12,9 @@ Game::Game()
 {
     this->quit = false;
 
-    this->hero = new Rect(std::string("Link"), 50, 50, 20, 20, 0, 0, 255);
-    Rect *enemy = new Rect(std::string("Ganon"), 400, 400, 20, 20, 255, 0, 0);
-    Rect *enemy2 = new Rect(std::string("Ganon2"), 500, 500, 20, 20, 255, 0, 0);
+    this->hero = new Hero(50, 50);
+    Rect *enemy = new Bokblin(400, 400);
+    Rect *enemy2 = new Bokblin(500, 500);
     this->enemies.push_front(enemy);
     this->enemies.push_front(enemy2);
 }
@@ -44,7 +47,7 @@ void Game::Run()
 
 void Game::draw()
 {
-    for(Rect *enemy : enemies){
+    for(Character *enemy : enemies){
         if(enemy->isAlive) enemy->draw();
     }
     this->hero->draw();
@@ -54,7 +57,7 @@ void Game::draw()
 
 void Game::checkCollisions()
 {
-    for(Rect *enemy : enemies){
+    for(Character *enemy : enemies){
         if(this->hero->collides(enemy)) enemy->kill();
     }
 }
