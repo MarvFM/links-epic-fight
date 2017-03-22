@@ -3,7 +3,9 @@
 
 #include <list>
 #include <SDL2/SDL.h>
-#include "../include/Rect.h"
+
+#include "../include/Character.h"
+#include "../include/Hero.h"
 
 class Game
 {
@@ -20,8 +22,8 @@ class Game
     private:
         bool quit;
 
-        std::list<Rect*> enemies;
-        Rect *hero;
+        std::list<Character*> enemies;
+        Hero *hero;
 
 };
 

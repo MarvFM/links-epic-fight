@@ -1,13 +1,14 @@
-#ifndef RECT_H
-#define RECT_H
+#ifndef WorldObject_H
+#define WorldObject_H
 
 #include <SDL2/SDL.h>
 #include <string>
 
-class Rect
+class WorldObject
 {
     // methods
     public:
+        Rect(std::string name, int x, int y, int width, int height);
         Rect(std::string name, int x, int y, int width, int height, int r, int g, int b);
         ~Rect();
         void draw();
@@ -17,7 +18,6 @@ class Rect
 
     // properties
     public:
-        bool isAlive;
         int red;
         int green;
         int blue;
