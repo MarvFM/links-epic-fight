@@ -14,6 +14,8 @@ class Character : public WorldObject
         Character(std::string name, int x, int y, int width, int height, int r, int g, int b, int livePoints, int attackDamage);
         ~Character();
 
+        bool getIsAlive(){return isAlive;}
+
         void move(int xDiff, int yDiff);
         void kill();
 
