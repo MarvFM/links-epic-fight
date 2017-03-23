@@ -5,14 +5,6 @@
 extern SDL_Renderer* RENDERER;
 extern TTF_Font* NAME_FONT;
 
-Character::Character(std::string name, int x, int y, int width, int height, int livePoints, int attackDamage)
-: WorldObject(name, x, y, width, height)
-{
-  this->isAlive = true;
-  this->livePoints = livePoints;
-  this->attackDamage = attackDamage;
-}
-
 Character::Character(std::string name, int x, int y, int width, int height, int r, int g, int b, int livePoints, int attackDamage)
 : WorldObject(name, x, y, width, height, r, g, b)
 {

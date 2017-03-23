@@ -5,18 +5,17 @@
 extern SDL_Renderer* RENDERER;
 extern TTF_Font* NAME_FONT;
 
-WorldObject::WorldObject(std::string name, int x, int y, int width, int height)
+WorldObject::WorldObject(std::string name, int x, int y, int width, int height, int r, int g, int b)
 {
   this->name = name;
   this->xPos = x;
   this->yPos = y;
   this->width = width;
   this->height = height;
+  this->red = r;
+  this->green = g;
+  this->blue = b;
 
-  this->red = 0;
-  this->green = 0;
-  this->blue = 0;
-  
   // create title text in the most fancy way, this is costly so we do it only once
   // first temporary surface
   SDL_Surface *s = TTF_RenderText_Blended(NAME_FONT, name.c_str(), {255, 255, 255});
@@ -29,14 +28,6 @@ WorldObject::WorldObject(std::string name, int x, int y, int width, int height)
   SDL_FreeSurface(s);
 }
 
-WorldObject::WorldObject(std::string name, int x, int y, int width, int height, int r, int g, int b)
-{
-    WorldObject(name, x, y, width, height);
-    this->red = r;
-    this->green = g;
-    this->blue = b;
-}
-
 WorldObject::~WorldObject()
 {
     // must free this, or memory leak
@@ -44,15 +35,12 @@ WorldObject::~WorldObject()
 }
 
 void WorldObject::draw(){
-    SDL_Rect rect;
-    rect.x = xPos;
-    rect.y = yPos;
-    rect.h = height;
-    rect.w = width;
+    SDL_Rect rect = {this->xPos, this->yPos, this->height, this->width};
+    int titleRectXPos = this->xPos + this->width/2 - this->titleTextureWidth/2;
+    int titleRectYPos = this->yPos - 3 - this->titleTextureHeight;
+    SDL_Rect titleRect = {titleRectXPos, titleRectYPos, this->titleTextureWidth, this->titleTextureHeight};
 
-    SDL_Rect titleRect = {xPos + width/2 - titleTextureWidth/2, yPos - 3 - titleTextureHeight, titleTextureWidth, titleTextureHeight};
     SDL_RenderCopy(RENDERER, titleTexture, NULL, &titleRect);
-
     SDL_SetRenderDrawColor(RENDERER, this->red , this->green, this->blue, 255);
     SDL_RenderFillRect(RENDERER, &rect);
 }
