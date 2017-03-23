@@ -15,7 +15,7 @@ class Character : public WorldObject
         ~Character();
 
         bool getIsAlive(){return isAlive;}
-
+        int getRandomSingleCoordinate();
         void move(int xDiff, int yDiff);
         void kill();
 

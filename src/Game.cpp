@@ -40,6 +40,10 @@ void Game::Run()
         if(state[SDL_SCANCODE_S]) hero->move(0,speed);
         if(state[SDL_SCANCODE_D]) hero->move(speed,0);
 
+        for(Character *enemy : enemies){
+
+            enemy->move(enemy->getRandomSingleCoordinate(),enemy->getRandomSingleCoordinate());
+        }
         this->checkCollisions();
         this->draw();
     }

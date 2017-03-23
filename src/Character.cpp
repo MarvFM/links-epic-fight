@@ -1,6 +1,8 @@
 #include "../include/Character.h"
 
 #include <SDL2/SDL_ttf.h>
+#include <time.h>
+#include <stdlib.h>
 
 extern SDL_Renderer* RENDERER;
 extern TTF_Font* NAME_FONT;
@@ -11,6 +13,16 @@ Character::Character(std::string name, int x, int y, int width, int height, int 
     this->isAlive = true;
     this->livePoints = livePoints;
     this->attackDamage = attackDamage;
+}
+
+int Character::getRandomSingleCoordinate()
+{
+    time_t t;
+    time(&t);
+    srand((unsigned int)t);
+    int randomMove = rand() % 5 - 2;
+
+    return randomMove;
 }
 
 void Character::move(int xDiff, int yDiff){
