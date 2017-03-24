@@ -6,13 +6,15 @@
 
 class WorldObject
 {
-    // methods
+    // public methods
     public:
-        WorldObject(std::string name, int x, int y, int width, int height);
         WorldObject(std::string name, int x, int y, int width, int height, int r, int g, int b);
         ~WorldObject();
-        void draw();
+        // renders the object on the window on its coordinates
+        void draw(int xOffset = 0, int yOffset = 0);
+        // checks for a collision to another object
         bool collides(WorldObject *otherRect);
+        // getter methods
         int getRed(){return red;}
         int getGreen(){return green;}
         int getBlue(){return blue;}
@@ -21,18 +23,22 @@ class WorldObject
         int getXPos(){return xPos;}
         int getYPos(){return yPos;}
         std::string getName(){return name;}
-    // properties
+    // protected properties
     protected:
+        // coordinates in the world
         int xPos;
         int yPos;
+        // width and height for an rectangle
         int width;
         int height;
+        // name/label for this object
         std::string name;
+        // RGB values
         int red;
         int green;
         int blue;
 
-        // buffer title text of the rectangl
+        // buffer title text of the rectangle
         SDL_Texture *titleTexture;
         int titleTextureWidth;
         int titleTextureHeight;

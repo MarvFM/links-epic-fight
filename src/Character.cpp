@@ -15,6 +15,11 @@ Character::Character(std::string name, int x, int y, int width, int height, int 
     this->attackDamage = attackDamage;
 }
 
+Character::~Character()
+{
+    
+}
+
 int Character::getRandomSingleCoordinate()
 {
     time_t t;

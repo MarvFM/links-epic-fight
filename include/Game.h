@@ -6,25 +6,31 @@
 
 #include "../include/Character.h"
 #include "../include/Hero.h"
+#include "../include/World.h"
 
 class Game
 {
-    // methods
+    // public methods
     public:
         Game();
+        //runs the main loop of the Game
         void Run();
-
+    // private methods
     private:
-        void draw();
+        // check for all objects wether hero collides to enemies
+        // and kill them if he do
+        // TODO rework: outsourcing to specific objects
         void checkCollisions();
+        // calculates x and y offset for an objects,
+        // so that this object is in the center of the window
+        void calculateOffsets(WorldObject* obj, int* result);
 
-    // properties
+    // private properties
     private:
+        // property for leaving the main loop
         bool quit;
-
-        std::list<Character*> enemies;
-        Hero *hero;
-
+        // pointer for the main World of the game
+        World* world;
 };
 
 #endif // GAME_H
