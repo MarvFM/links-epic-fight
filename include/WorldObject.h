@@ -4,12 +4,15 @@
 #include <SDL2/SDL.h>
 #include <string>
 
+#include "../include/Texture.h"
+
 class WorldObject
 {
     // public methods
     public:
         WorldObject(std::string name, int x, int y, int width, int height, int r, int g, int b);
         ~WorldObject();
+        void loadTexture(std::string path, int x, int y);
         // renders the object on the window on its coordinates
         void draw(int xOffset = 0, int yOffset = 0);
         // checks for a collision to another object
@@ -23,6 +26,7 @@ class WorldObject
         int getXPos(){return xPos;}
         int getYPos(){return yPos;}
         std::string getName(){return name;}
+        SDL_Rect getRect(){SDL_Rect rect = {this->xPos, this->yPos, this->width, this->height}; return rect;}
     // protected properties
     protected:
         // coordinates in the world
@@ -43,6 +47,7 @@ class WorldObject
         int titleTextureWidth;
         int titleTextureHeight;
 
+        Texture* texture;
 };
 
 #endif // WorldObject_H

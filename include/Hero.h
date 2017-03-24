@@ -5,6 +5,7 @@
 #include <string>
 
 #include "../include/Character.h"
+#include "../include/Texture.h"
 
 class Hero : public Character
 {
@@ -13,6 +14,7 @@ class Hero : public Character
         Hero(int x, int y);
 
     protected:
+        static Texture* texture;
 
 };
 

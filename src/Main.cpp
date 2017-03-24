@@ -18,6 +18,7 @@ TTF_Font* NAME_FONT;
 int main(){
     SDL_Init(SDL_INIT_VIDEO);
     TTF_Init();
+    IMG_Init(IMG_INIT_PNG);
     NAME_FONT = TTF_OpenFont("assets/sans.ttf", 24);
     SDL_Window *gameWindow = SDL_CreateWindow("The Legend of Zelda: Links epic Fight", 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     //SDL_Surface *gameSurface = SDL_GetWindowSurface(gameWindow);

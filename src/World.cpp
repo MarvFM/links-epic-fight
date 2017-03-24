@@ -63,6 +63,7 @@ void World::draw(int xOffset, int yOffset)
     this->drawWorld(xOffset, yOffset);
     this->drawObjects(xOffset, yOffset);
     this->drawCharacters(xOffset, yOffset);
+    SDL_SetRenderDrawColor(RENDERER,0,0,0,255);
     return;
 }
 

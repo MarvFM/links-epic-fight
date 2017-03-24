@@ -37,6 +37,7 @@ WorldObject::WorldObject(std::string name, int x, int y, int width, int height, 
   this->titleTextureHeight = s->h;
   // free temp surface (actual memory leak)
   SDL_FreeSurface(s);
+  this->texture = NULL;
 }
 
 // Deconstructor
@@ -46,21 +47,26 @@ WorldObject::~WorldObject()
     SDL_DestroyTexture(this->titleTexture);
 }
 
+void WorldObject::loadTexture(std::string path, int x, int y)
+{
+    this->texture = new Texture(path.c_str(), x, y);
+}
 /* renders the specific object with the global Renderer
   1. arg: xOffset for rendering -> default: 0
   2. arg: yOffset for rendering -> default: 0
 */
 void WorldObject::draw(int xOffset, int yOffset){
     // create ractangle for the name-label
-    SDL_Rect rect = {this->xPos + xOffset, this->yPos + yOffset, this->height, this->width};
-    int titleRectXPos = (this->xPos + xOffset) + this->width/2 - this->titleTextureWidth/2;
-    int titleRectYPos = (this->yPos + yOffset) - 3 - this->titleTextureHeight;
-    SDL_Rect titleRect = {titleRectXPos, titleRectYPos, this->titleTextureWidth, this->titleTextureHeight};
+    //SDL_Rect rect = {this->xPos + xOffset, this->yPos + yOffset, this->height, this->width};
+    //int titleRectXPos = (this->xPos + xOffset) + this->width/2 - this->titleTextureWidth/2;
+    //int titleRectYPos = (this->yPos + yOffset) - 3 - this->titleTextureHeight;
+    //SDL_Rect titleRect = {titleRectXPos, titleRectYPos, this->titleTextureWidth, this->titleTextureHeight};
 
     //renders rectangle for the object and the label
-    SDL_RenderCopy(RENDERER, titleTexture, NULL, &titleRect);
-    SDL_SetRenderDrawColor(RENDERER, this->red , this->green, this->blue, 255);
-    SDL_RenderFillRect(RENDERER, &rect);
+    //SDL_RenderCopy(RENDERER, titleTexture, NULL, &titleRect);
+    //SDL_SetRenderDrawColor(RENDERER, this->red , this->green, this->blue, 255);
+    //SDL_RenderFillRect(RENDERER, &rect);
+    if(this->texture != NULL) this->texture->drawTexture(this, xOffset, yOffset);
     return;
 }
 
@@ -68,10 +74,13 @@ void WorldObject::draw(int xOffset, int yOffset){
   1. arg: WorldObject for collision detecting
   return: bool value if there is a collision or not
 */
-bool WorldObject::collides(WorldObject *otherRect){
-    int xDiff = this->xPos - otherRect->xPos;
+bool WorldObject::collides(WorldObject *otherObj){
+    /*int xDiff = this->xPos - otherRect->xPos;
     int yDiff = this->yPos - otherRect->yPos;
     if((xDiff - this->width > -2) || ((xDiff + otherRect->width < 2))) return false;
     if((yDiff - this->height > -2) || ((yDiff + otherRect->height < 2))) return false;
-    return true;
+    */
+    SDL_Rect rA = this->getRect();
+    SDL_Rect rB = otherObj->getRect();
+    return SDL_HasIntersection(&rA, &rB);;
 }

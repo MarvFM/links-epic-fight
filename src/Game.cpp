@@ -6,7 +6,7 @@
 #include "../include/Hero.h"
 #include "../include/Bokblin.h"
 #include "../include/World.h"
-
+#include "../include/Texture.h"
 
 extern SDL_Renderer* RENDERER;
 extern Timer* TIMER;
@@ -46,7 +46,6 @@ void Game::Run()
         int offsets[2] = {};
         this->calculateOffsets(this->world->getHero(), offsets);
         this->world->draw(offsets[0], offsets[1]);
-
         SDL_RenderPresent(RENDERER);
     }
 }
