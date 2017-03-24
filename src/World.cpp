@@ -1,5 +1,6 @@
 #include "../include/World.h"
 #include <iostream>
+#include <string>
 
 #include "../include/Hero.h"
 #include "../include/Bokblin.h"
@@ -14,6 +15,8 @@ World::World()
     Character *enemy2 = new Bokblin(200, 200);
     this->enemies.push_front(enemy);
     this->enemies.push_front(enemy2);
+
+    this->worldBorder = new WorldObject(std::string("World Border"), -1000, -1000, 2000, 2000, 0, 255, 0);
 
 }
 
@@ -32,7 +35,7 @@ World::~World()
 
 void World::drawWorld(int xOffset, int yOffset)
 {
-    SDL_SetRenderDrawColor(RENDERER, 0, 255, 0, 255);
+    this->worldBorder->draw(xOffset, yOffset);
     return;
 }
 
